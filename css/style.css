@@ -1,0 +1,61 @@
+header{
+    background-color:gray;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 8px;
+}
+
+nav{
+    margin: 15px 0 0 0 ;
+    text-align: center;
+    display: flex;
+    justify-content: start;
+}
+a{
+    background-color: gray;
+    padding:10px;
+    text-decoration:none;
+   margin: 0 auto;
+    
+}
+.seccion{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 10px;
+
+    
+}
+
+section{
+    background-color: gray;
+    text-align: center;
+    width: 30%;
+    margin: 0 auto;
+    
+      
+}
+aside div{
+    background-color: gray;
+    width: 40%;
+    margin: 0 auto;
+   
+}
+aside div:nth-child(1){
+    padding: 0 4rem 0 0;
+}
+aside div:nth-child(2){
+    padding: 2rem;
+}
+
+footer{
+    text-align: center;
+    background-color: gray;
+    width: 75%;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+
+
