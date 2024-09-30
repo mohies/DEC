@@ -362,7 +362,7 @@ function horas(){
 }
 
 horas()
-  */
+  s*/
 
 function triler(){
     var intuicion=parseInt(prompt("Introduce donde crees que esta la bola "));
