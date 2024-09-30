@@ -1,61 +1,79 @@
 header{
     background-color:gray;
-    width: 75%;
     margin: 0 auto;
     text-align: center;
     padding: 8px;
 }
 
 nav{
-    margin: 15px 0 0 0 ;
+   margin-top: 15px;
     text-align: center;
-    display: flex;
-    justify-content: start;
+    display: block;
+
 }
-a{
+a {
     background-color: gray;
-    padding:10px;
-    text-decoration:none;
-   margin: 0 auto;
-    
+    padding: 10px 30px;
+    text-decoration: none;
+    margin: 0 100px; 
+    display: inline-block; 
 }
-.seccion{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    gap: 10px;
-
-    
-}
-
 section{
-    background-color: gray;
-    text-align: center;
-    width: 30%;
-    margin: 0 auto;
-    
-      
+    display: flex;
+    gap: 2rem;
 }
-aside div{
+article {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex:1;
+    display: flex;
+    flex-direction: column; /* Alinea los artículos uno encima del otro */
+  
+}
+article .p1{
     background-color: gray;
-    width: 40%;
-    margin: 0 auto;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+article .p2{
+    background-color: gray;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+aside {
+    flex: 1; /* Ajusta el tamaño del aside */
+    display: flex;
+    flex-direction: column; /* Alinea los elementos del aside uno encima del otro */
+    gap: 20px; /* Espacio entre los contenedores del aside */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+aside .p11{
+    background-color: gray;
+    padding: 2rem;
    
 }
-aside div:nth-child(1){
-    padding: 0 4rem 0 0;
-}
-aside div:nth-child(2){
+aside .p22{
+    background-color: gray;
     padding: 2rem;
+    
 }
 
 footer{
     text-align: center;
     background-color: gray;
-    width: 75%;
-    margin: 0 auto;
+
     padding: 8px;
 }
 
+@media (width<=700px) {
+    body{
+        background-color: red;
+    }
+    
+  }
+  
 
 
