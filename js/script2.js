@@ -52,6 +52,28 @@ function empiezan(){
         alert("Tiene tantas palabras "+contador)
         
         alert(contador2)
+
+function parentesis(){
+    var cadena=prompt("Introduce una cadena de texto que podria contener parentesis ")
+    var vacia=" ";
+
+    for(var i=0; i<cadena.length; i++){
+        if(cadena.charAt(i)=="("){
+            for(var j=i+1;j<cadena.length;j++){
+                if(cadena.charAt(j)!=")"){  
+                    vacia=vacia+cadena.charAt(j);
+                }else{
+                    break;
+                }    
+
+
+            }
+        }
+    }
+
+    alert(vacia);
+}
+parentesis()
            
         
 
