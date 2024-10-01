@@ -86,3 +86,73 @@ parentesis()
 
 }
 empiezan()
+
+
+/*function parentesis(){
+    var cadena=prompt("Introduce una cadena de texto que podria contener parentesis ")
+    var vacia=" ";
+
+    for(var i=0; i<cadena.length; i++){
+        if(cadena.charAt(i)=="("){
+            for(var j=i+1;j<cadena.length;j++){
+                if(cadena.charAt(j)!=")"){  
+                    vacia=vacia+cadena.charAt(j);
+                }else{
+                    break;
+                }    
+
+
+            }
+        }
+    }
+
+    alert(vacia);
+}
+parentesis()
+
+function alreves(){
+    var frase=prompt("Introduce una frase que quieras poner al reves ")
+    var vacia=" ";
+    for(var i=0;i<frase.length;i++){
+        vacia = frase.charAt(i)+vacia;
+
+    }
+    alert(vacia)
+}
+alreves()
+*/
+function correo(){
+    var email = prompt("Introduce un email ");
+
+    while(email.charAt()!='@' && !email.match(".com")){
+        email=prompt("Introduce un email correcto ")
+    }
+
+    return email;
+}
+
+function edad(){
+
+    var nombre=prompt("Introdue tu nombre");
+    var profesion=prompt("Introduce profesion ");
+    var edad=prompt("Introduce tu edad ");
+    var email=correo();
+    var cadena =(nombre+" "+profesion+" "+edad+""+email)
+    
+    var muestra="";
+    for(var i=0;i<cadena.length;i++){
+        if(!isNaN(cadena.charAt(i))){
+
+            muestra=muestra+cadena.charAt(i);
+        }
+    }
+    alert(muestra);
+    email=email.split('@')
+    alert("Usuario: "+email[0]);
+    alert("Servidor: "+email[1])
+    
+}
+
+edad()
+
+
