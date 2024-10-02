@@ -156,3 +156,54 @@ function edad(){
 edad()
 
 
+function contar() {
+    // Solicitar al usuario una cadena de texto
+    var cadena = prompt("Introduce una cadena con nombres");
+
+    
+    var er = new RegExp("\\bC\\w*", "g");
+    var coincidencias = cadena.match(er);
+
+    // Si coincidencias es null, significa que no se encontraron palabras
+    if (coincidencias === null) {
+        console.log("Número de palabras que comienzan con C: 0");
+    } else {
+        // Mostrar el número de coincidencias
+        console.log("Número de palabras que comienzan con C: " + coincidencias.length);
+    }
+}
+
+contar();
+
+*/
+
+function contar() {
+    // Solicitar al usuario una cadena de texto
+    var cadena = prompt("Introduce una cadena con nombres");
+
+    // Dividimos la cadena en palabras usando espacios como separadores
+    var palabras = cadena.split(" ");
+    var contador = 0;
+
+    // Expresión regular para palabras que comienzan con "C"
+    var er = new RegExp("^C");
+
+    // Recorrer cada palabra y comprobar si empieza con "C"
+    for (var i = 0; i < palabras.length; i++) {
+        if (er.test(palabras[i])) {
+            contador++;
+        }
+    }
+
+    // Mostrar el número de palabras que comienzan con "C"
+    console.log("Número de palabras que comienzan con C: " + contador);
+}
+
+contar();
+
+
+
+
+
+
+
