@@ -251,7 +251,42 @@ function supertrim(){
 }
 supertrim()
 */
+//11
+^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W)[A-Za-z0-9\W]{8,20}$
 
+//12
+let texto = "Este es un día malo. Todo ha sido malo hoy.";
+
+let resultado = texto.replace(/\bmalo\b/g, "bueno");
+
+console.log(resultado);
+
+
+//Segunda parte 12
+let texto = prompt("Introduce el texto:");
+
+let palabraARemplazar = prompt("Introduce la palabra a reemplazar:");
+
+
+let nuevaPalabra = prompt("Introduce la nueva palabra:");
+
+
+let regex = new RegExp("\\b" + palabraARemplazar + "\\b", 'g');
+
+
+let resultado = texto.replace(regex, nuevaPalabra);
+
+alert("Texto modificado: " + resultado);
+
+*/
+//13
+
+const text = "https://www.example.com and https://www.google.com";
+const regex = /https?:\/\/[^\s]+\.com/g;
+
+const matches = text.match(regex);
+
+console.log(matches);  
 
 
 
