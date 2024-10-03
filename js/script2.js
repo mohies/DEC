@@ -202,6 +202,57 @@ function contar() {
 contar();
 
 
+function esPalindromo() {
+   
+    palabra = prompt("Inntroduce palabra").toUpperCase();
+    
+  
+    let palabraFiltrada = '';
+
+   
+    for (let i = 0; i < palabra.length; i++) {
+        if (/[A-Z0-9]/.test(palabra[i])) { 
+            palabraFiltrada += palabra[i];
+        }
+    }
+
+  
+    let palabraInvertida = '';
+    for (var i = palabraFiltrada.length - 1; i >= 0; i--) {
+        palabraInvertida += palabraFiltrada[i];
+    }
+
+ 
+    alert(palabraFiltrada === palabraInvertida)
+}
+esPalindromo()
+
+
+
+function eliminarEspacio() {
+    var frase = prompt("Introduce una frase");
+    
+   
+    var fraseSinEspacios = frase.replace(/\s/g, ''); 
+
+    console.log(fraseSinEspacios);
+}
+
+eliminarEspacio();
+
+
+
+function supertrim(){
+
+    var frase=prompt("Introduce una frase ");
+
+    var supertrim=frase.replace(/\s{2,}/g," ");
+    alert(supertrim)
+}
+supertrim()
+*/
+
+
 
 
 
