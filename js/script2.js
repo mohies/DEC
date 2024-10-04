@@ -27,7 +27,6 @@ function contar(){
 
 contar()
 
-*/
 function empiezan(){
         var frase=prompt("Introduce una palabra que analizar ");
 
@@ -120,7 +119,7 @@ function alreves(){
     alert(vacia)
 }
 alreves()
-*/
+
 function correo(){
     var email = prompt("Introduce un email ");
 
@@ -175,7 +174,7 @@ function contar() {
 
 contar();
 
-*/
+
 
 function contar() {
     // Solicitar al usuario una cadena de texto
@@ -250,7 +249,7 @@ function supertrim(){
     alert(supertrim)
 }
 supertrim()
-*/
+
 //11
 ^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\W)[A-Za-z0-9\W]{8,20}$
 
@@ -278,7 +277,7 @@ let resultado = texto.replace(regex, nuevaPalabra);
 
 alert("Texto modificado: " + resultado);
 
-*/
+
 //13
 
 const text = "https://www.example.com and https://www.google.com";
@@ -288,6 +287,57 @@ const matches = text.match(regex);
 
 console.log(matches);  
 
+
+//14
+var f = prompt("Introduce una cadena");
+var regExp = new RegExp("[A-Za-z]", 'g');
+
+var p = f.match(regExp);
+var contador = 0;
+var max = 0;
+var charMax = '';
+
+    for (var i = 0; i < p.length; i++) {
+        contador = 1; 
+
+        for (var j = i + 1; j < p.length; j++) {
+            if (p[i] === p[j]) { 
+                contador++;
+            }
+        }
+
+        if (contador > max) {
+            max = contador;
+            charMax = p[i]; 
+        }
+    }
+
+    console.log("La que aparece más es '" + charMax + "' con " + max + " ocurrencias.");
+
+
+//16
+var matricula=prompt("Introduce una matricula ");
+var m= new RegExp("^[A-Z]{3}\-[0-9]{4}$",'g');
+
+if(matricula.match(m)){
+    alert("La matriucla ESTA BIEN");
+}else{
+    alert("No es correcta");
+}
+*/
+//17
+var correo= prompt("Introduce correo postal ")
+var c= new RegExp("^[0-5][0-2][0-9]{3}$|[0-4][0-9]{4}$",'g');
+
+
+
+if(correo.match(c)){
+    alert("El correo ESTA BIEN");
+}else{
+    alert("No es correcta");
+}
+
+//18
 
 
 
