@@ -27,6 +27,31 @@ function contar(){
 
 contar()
 
+function contar(){
+    var nombre=prompt("Introduce nombre ");
+    var contador=0;
+    var contador2=0;
+    var contado3=0;
+    while(nombre!="ULTIMO" &&  isNaN(nombre)){
+       
+        var er = new RegExp("\\bC",'g');
+        var er2 = new RegExp("ñ+",'g');
+        if(er.test(nombre)){
+            contador++;
+        }
+        
+        if(er2.test(nombre)){
+            contador2++
+        } 
+        contado3++;
+
+        nombre=prompt("Introduce ")
+    }
+
+    alert("En la cadena de nombres hay que empiezan por C: "+contador+" y que contengan ñ :"+contador2+ " y la cadena tiene "+contado3+" nombres" );
+}
+contar()
+//-----------------------------------------------------------------------------------------------------------------------------------
 function empiezan(){
         var frase=prompt("Introduce una palabra que analizar ");
 
