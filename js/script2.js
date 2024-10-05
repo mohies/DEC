@@ -324,7 +324,7 @@ if(matricula.match(m)){
 }else{
     alert("No es correcta");
 }
-*/
+
 //17
 var correo= prompt("Introduce correo postal ")
 var c= new RegExp("^[0-5][0-2][0-9]{3}$|[0-4][0-9]{4}$",'g');
@@ -338,6 +338,26 @@ if(correo.match(c)){
 }
 
 //18
+var cordenadas= prompt("Introduce coordenadas ")
+var c= new RegExp("^\\(\\d{1,3}[,]\\d{1,3}\\)$",'g');
+
+
+
+if(c.test(cordenadas)){
+    alert("Las cordenadas estan  BIEN");
+}else{
+    alert("No es correcta");
+}
+
+*/
+//19
+
+var texto= prompt("Introduce un texto con numeros ")
+var n= new RegExp("\\d+",'g');
+
+var array = texto.match(n);
+
+console.log(array);
 
 
 
