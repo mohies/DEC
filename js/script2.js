@@ -52,6 +52,7 @@ function contar(){
 }
 contar()
 //-----------------------------------------------------------------------------------------------------------------------------------
+//2
 function empiezan(){
         var frase=prompt("Introduce una palabra que analizar ");
 
@@ -77,6 +78,31 @@ function empiezan(){
         
         alert(contador2)
 
+
+
+        var texto=prompt("Introduce un texto");
+//Otra forma
+var er= new RegExp("[^\\s\\.]+",'g');
+
+var pa=texto.match(er);
+
+console.log(pa);
+
+var array = texto.split(/[?=.\s]+/);
+var contador2=0;
+console.log(array);
+var contador=0;
+for(var i=0;i<array.length;i++){
+    if(array[i]!=""){
+        contador++
+    }
+    if(array[i].charAt(0)=='A'){
+        contador2++;
+    }
+}
+console.log(contador)
+console.log(contador2);
+//-----------------------------------------------------------------------------------------------------------------------------------
 function parentesis(){
     var cadena=prompt("Introduce una cadena de texto que podria contener parentesis ")
     var vacia=" ";
