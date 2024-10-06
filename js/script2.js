@@ -103,6 +103,7 @@ for(var i=0;i<array.length;i++){
 console.log(contador)
 console.log(contador2);
 //-----------------------------------------------------------------------------------------------------------------------------------
+//4
 function parentesis(){
     var cadena=prompt("Introduce una cadena de texto que podria contener parentesis ")
     var vacia=" ";
@@ -124,41 +125,20 @@ function parentesis(){
     alert(vacia);
 }
 parentesis()
-           
-        
+//OTRA FORMA         
+let texto = "Hola (que) tal";
 
-    
-
-    
-           
-           
-      
-
+// Expresión regular para capturar el texto dentro de los paréntesis
+let resultado = texto.match(/\((\w+)\)/) || texto.match(/\((\w+[^)]+)/);
+console.log(resultado)
+// Si se encontraron paréntesis
+if (resultado) {
+    console.log(resultado[1]); // Muestra el texto entre paréntesis o hasta el final si falta el cierre
+} else {
+    console.log(""); // Si no hay paréntesis, muestra cadena vacía
 }
-empiezan()
 
-
-/*function parentesis(){
-    var cadena=prompt("Introduce una cadena de texto que podria contener parentesis ")
-    var vacia=" ";
-
-    for(var i=0; i<cadena.length; i++){
-        if(cadena.charAt(i)=="("){
-            for(var j=i+1;j<cadena.length;j++){
-                if(cadena.charAt(j)!=")"){  
-                    vacia=vacia+cadena.charAt(j);
-                }else{
-                    break;
-                }    
-
-
-            }
-        }
-    }
-
-    alert(vacia);
-}
-parentesis()
+//-----------------------------------------------------------------------------------------------------------------------------------
 
 function alreves(){
     var frase=prompt("Introduce una frase que quieras poner al reves ")
