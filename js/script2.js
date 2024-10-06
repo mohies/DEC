@@ -139,7 +139,7 @@ if (resultado) {
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------
-
+//5
 function alreves(){
     var frase=prompt("Introduce una frase que quieras poner al reves ")
     var vacia=" ";
@@ -150,7 +150,8 @@ function alreves(){
     alert(vacia)
 }
 alreves()
-
+//-----------------------------------------------------------------------------------------------------------------------------------
+//6 y 7
 function correo(){
     var email = prompt("Introduce un email ");
 
@@ -184,8 +185,14 @@ function edad(){
 }
 
 edad()
+//Otra forma del 6
+let datos=prompt("Introduce")
 
+let resultado= datos.match(/\d+/);
 
+console.log("La edad es "+resultado[0]);
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 function contar() {
     // Solicitar al usuario una cadena de texto
     var cadena = prompt("Introduce una cadena con nombres");
