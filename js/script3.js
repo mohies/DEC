@@ -1,4 +1,4 @@
-/*
+/*TIPO DATE
 //1
 var d = new Date(); 
 var a = new Date(); 
