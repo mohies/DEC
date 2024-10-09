@@ -8,6 +8,24 @@ for (var v in window.navigator){
     ventana.document.write("<pre>" + v + ": " + window.navigator[v] + "</pre>");
 }
 
-*/
+
 
 //2
+let name = window.navigator.appCodeName;
+let version= window.navigator.appVersion;
+let so=window.navigator.userAgent;
+console.log("Nombre "+name+" Version "+version+" so: "+so)
+
+//3
+let nuevaVentana;
+
+document.getElementById('abrirVentana').addEventListener('click', function () {
+  
+    nuevaVentana = window.open('', 'Ventana nueva', 'width=400,height=200,left=0,top=0');
+    nuevaVentana.document.write("<h1 style='font-size:100px'>El ojo es la ventana a tu alma</h1>");
+    nuevaVentana.focus();
+});
+
+document.getElementById('cerrarVentana').addEventListener('click', function () {
+        nuevaVentana.close();
+});*/
