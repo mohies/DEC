@@ -1,5 +1,5 @@
 
-/*//1
+/*//1 EXPRESIONES REGULARES
 
 function contar(){
         var nombre=prompt("Introduce un nombre")
