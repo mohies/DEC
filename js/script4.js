@@ -21,11 +21,27 @@ let nuevaVentana;
 
 document.getElementById('abrirVentana').addEventListener('click', function () {
   
-    nuevaVentana = window.open('', 'Ventana nueva', 'width=400,height=200,left=0,top=0');
+    nuevaVentana = window.open('', 'Ventana nueva', 'width=400,height=200');
     nuevaVentana.document.write("<h1 style='font-size:100px'>El ojo es la ventana a tu alma</h1>");
     nuevaVentana.focus();
 });
 
 document.getElementById('cerrarVentana').addEventListener('click', function () {
         nuevaVentana.close();
-});*/
+        
+});
+
+//4
+let ancho = window.innerWidth;
+let altura= window.innerHeight;
+let color=window.screen.colorDepth;
+alert("el ancho "+ancho +"\nla altura: "+ altura + "\nColor "+ color)
+*/
+
+//5
+
+setInterval(displayHello(), 1000);
+
+function displayHello() {
+  document.title.innerHTML += "Hello";
+}
