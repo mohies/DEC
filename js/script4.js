@@ -39,9 +39,10 @@ alert("el ancho "+ancho +"\nla altura: "+ altura + "\nColor "+ color)
 */
 
 //5
-
-setInterval(displayHello(), 1000);
+setInterval(displayHello, 60000);
 
 function displayHello() {
-  document.title.innerHTML += "Hello";
+  var hora = new Date();
+  minutos = minutos < 10 ? '0' + minutos : minutos;
+  document.querySelector("title").innerHTML = (hora.getHours()+":"+minutos);
 }
