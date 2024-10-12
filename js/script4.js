@@ -45,7 +45,8 @@ function displayHello() {
   minutos = minutos < 10 ? '0' + minutos : minutos;
   document.querySelector("title").innerHTML = (hora.getHours()+":"+minutos);
 }
-*/
+
+//6
 let ventana;
 
 document.getElementById("abrir").addEventListener("click",function abrir(){
@@ -102,3 +103,14 @@ document.getElementById("scrollr").addEventListener("click",function scrollr(){
   ventana.scrollBy(0,10);
   ventana.focus()
 });
+*/
+//7
+let texto = "¡¡Sólo quedan 20 días de ofertas!!";
+
+
+function moverTextoCircular() {
+    texto = texto.substring(1) + texto.charAt(0);
+    document.querySelector("title").innerHTML = texto;  
+}
+
+setInterval(moverTextoCircular,300);
