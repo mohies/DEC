@@ -85,7 +85,7 @@ let sumaArgPares=(...a)=>{
 }
 
 console.log(sumaArgPares(1,2,6))
-*/
+
 //EJERICCIO 17
 var array= [];
 var p= prompt("Introduce una palabra ")
@@ -104,4 +104,15 @@ document.getElementById("abrir"),addEventListener("click",()=>{
     ventana.document.write("<h1>La cantidad de palabras que hay en el array son "+array.length+"</h1>")
     ventana.document.write("<h1>LArray ordenado alfabeticamente "+array.sort()+"</h1>")
 
-})
+})*/
+//19
+var array2 = [];
+var datos = prompt("Introduce lo siguiente [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
+
+while (datos !== "") {
+    var array = datos.split(",");
+    array2.push(array);  
+    datos = prompt("Introduce otros datos [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
+}
+
+console.log(array2);
