@@ -18,7 +18,7 @@ let numCifras2 = (...a) => {
     console.log(contador);
 };
 numCifras2(...aN);
-*/
+
 
 //6
 
@@ -40,16 +40,27 @@ function suma(){
 
 suma(...aN)
 
-let suma2=(a)=>{
+let suma2=(...a)=>{
     var suma=0;
     for(let i in a){
-        suma=suma+a[i];
+        suma=suma+parseInt(a[i]);
     }
     console.log("La suma "+ suma)
 
 }
 
-suma2(aN)
+suma2(...aN)
 
 
+*/
+//9
+let esMenor=(...numeros) => Math.min(...numeros);
 
+console.log(esMenor(2,3,4,5,6));
+
+let colocaEnMedio=(a1,a2)=>{
+    a1.push((a1.length/2),0,a2)
+    return a1;
+}
+
+console.log(colocaEnMedio([2,3,4,5,6],[2,2,3,1]))
