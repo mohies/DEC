@@ -59,7 +59,7 @@ let esMenor=(...numeros) => Math.min(...numeros);
 console.log(esMenor(2,3,4,5,6));
 
 let colocaEnMedio=(a1,a2)=>{
-    a1.push((a1.length/2),0,a2)
+    a1.splice((a1.length/2),0,a2)
     return a1;
 }
 
