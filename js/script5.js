@@ -105,14 +105,46 @@ document.getElementById("abrir"),addEventListener("click",()=>{
     ventana.document.write("<h1>LArray ordenado alfabeticamente "+array.sort()+"</h1>")
 
 })*/
+
 //19
-var array2 = [];
-var datos = prompt("Introduce lo siguiente [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
+    var array2 = [];
+    var datos = prompt("Introduce lo siguiente [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
 
-while (datos !== "") {
-    var array = datos.split(",");
-    array2.push(array);  
-    datos = prompt("Introduce otros datos [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
-}
+    while (datos!=="") {
+        var array = datos.split(",");
+        array2.push(array);  
+        datos = prompt("Introduce otros datos [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
+    }
 
-console.log(array2);
+    console.log(array2);
+
+var array2=[];
+array2.push(["Juan", "Pérez", "Gómez", "12345678A", "01/01/1990"]);
+array2.push(["Ana", "Pérez", "Gómez", "87654321B", "02/02/1992"]);
+array2.push(["Luis", "García", "Fernández", "23456789C", "03/03/1988"]);
+array2.push(["María", "Rodríguez", "Sánchez", "34567890D", "04/04/1995"]);
+array2.push(["Carlos", "Martínez", "Torres", "45678901E", "05/05/1985"]);
+array2.push(["Elena", "Pérez", "González", "56789012F", "06/06/1993"]);
+array2.push(["José", "Hernández", "Morales", "67890123G", "07/07/1980"]);
+console.log(array2)
+function buscarPorDNI(dni) {
+        return array2.find((persona)=> persona[3]=== dni); //mejor hacerlo con find esta porque te encuentra el priemer elemento 
+    }
+function buscarPorApellidos(apellido1, apellido2) {
+        return array2.filter( (persona)=>persona[1] === apellido1 && persona[2] === apellido2);
+    }
+function buscarPorFecha(fecha) {
+        return array2.find((persona)=> persona[4]=== fecha);
+    }
+
+
+var dni = buscarPorDNI("67890123G");
+var apellidos = buscarPorApellidos("Pérez", "Gómez");
+var f=buscarPorFecha("04/04/1995")
+    
+console.log(dni);
+console.log(apellidos);
+console.log(f);
+
+
+
