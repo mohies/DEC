@@ -165,7 +165,7 @@ function menorEdad(ano){
     })
 }
 function buscarPorDNI(dni) {
-    return array2.find((persona)=> persona[3]=== dni); //mejor hacerlo con find esta porque te encuentra el priemer elemento 
+    return array2.find((persona)=> persona[3]=== dni); //mejor hacerlo con find esta funcion porque te encuentra el priemer elemento 
 }
 function buscarPorApellidos(apellido1, apellido2) {
     return array2.filter( (persona)=>{
@@ -178,19 +178,21 @@ function buscarPorFecha(fecha) {
 }
 
 function eliminarPersona() {
-    let dni = prompt("Di el dni de la persona que quieres eliminar");
+let dni = prompt("Escribe el dni de la persona que quieres eliminar");
     
   
-    let personaAEliminar = array2.find((persona) => persona[3] === dni);
+let personaAEliminar = array2.find((persona) => persona[3] === dni);
     
    
-    if (personaAEliminar) {
-        let confirmacion = confirm("¿Seguro que deseas eliminar a " + personaAEliminar[0] + " con DNI " + dni + "?");
+    if (personaAEliminar!=null) {
+        let confirmacion = confirm("quieres eliminar a" + personaAEliminar[0] + " con DNI " + dni);
         
        
         if (confirmacion) {
             array2 = array2.filter((persona) => persona[3] !== dni);
             console.log(array2); 
+        }else{
+        alert("Pues nada no la eliminamos");
         }
     } else {
         alert("Persona no encontrada");
@@ -210,8 +212,8 @@ console.log(f);
 //11
 function extraerNumerosYSumar(cadena) {
   
-    const numeros = cadena.match(/\d+/g); 
-    if (numeros) {
+const numeros = cadena.match(/\d+/g); 
+    if (numeros!=null) {
  
         const numerosEnteros = numeros.map(Number);
 
@@ -225,27 +227,48 @@ function extraerNumerosYSumar(cadena) {
 }
 
 const entrada = prompt("Introduce una cadena con números:");
-extraerNumerosYSumar(entrada);*/
+extraerNumerosYSumar(entrada);
 //13
 
+
 let rellenar=()=>{
+var n= prompt("Introduce numero")
+
+while(isNaN(n)){
     var n= prompt("Introduce numero")
-
-    while(isNaN(n)){
-        var n= prompt("Introduce numero")
-
     }
 
-    var a = [];
+var a = [];
 for(let i=0;i<n;i++){
     var m=[]
     for(let j=0;j<n;j++){
-        m.push(Math.floor(Math.random() * 100)); // Añadimos un número ale
+        m.push(Math.floor(Math.random() * 100)); // Añadimos un número aleatorio
     }
     a.push(m)
 }
 console.log(a)
+}
+rellenar()
+
+
+*/
+//14
+
+let matrices=()=>{
+var a = [];
+for(let i=0;i<2;i++){
+    var m=[]
+    for(let j=0;j<6;j++){
+        m.push(Math.floor(Math.random() * 100));
+    }
+    a.push(m)
+}
+console.log(a)
+let suma=0;
+let resultado=a.map((i)=> suma=suma+a[i]);
+console.log(resultado)
+
 
 }
 
-rellenar()
+matrices()
