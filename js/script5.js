@@ -251,7 +251,7 @@ console.log(a)
 rellenar()
 
 
-*/
+
 //14
 
 let matrices=()=>{
@@ -271,4 +271,36 @@ console.log(resultado)
 
 }
 
-matrices()
+matrices()*/
+//22
+
+const modulos=new Map();
+modulos.set("DWECL","Desarrollo Web en Entorno Cliente")
+modulos.set("EIEM","Empresa Inciativa e Emprendedora")
+modulos.set("DWES","Desarrollo Web en Entorno Servidor")
+modulos.set("DIW","Desarrollo Interfaces Web")
+modulos.set("DAW","Despliegue Aplicaciones Web")
+console.log(modulos.size)
+console.log(modulos)
+
+for(let [clave,valor] of modulos){
+    console.log(clave)
+}
+
+for(let [clave,valor] of modulos){
+    console.log(valor)
+}
+
+
+
+if(modulos.has("DAW")){
+    console.log("Esta asi que lo eliminamos :)")
+    modulos.delete("DAW")
+    console.log("Asi queda el map " ,modulos)
+    
+}else{
+    console.log("No esta")
+}
+
+const modulosOrdenados = new Map([...modulos.entries()].sort());
+console.log("Ordenado por claves:", modulosOrdenados);
