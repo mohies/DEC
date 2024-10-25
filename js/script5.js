@@ -271,8 +271,9 @@ console.log(resultado)
 
 }
 
-matrices()*/
+matrices()
 //22
+MAP Y SET
 
 const modulos=new Map();
 modulos.set("DWECL","Desarrollo Web en Entorno Cliente")
@@ -302,5 +303,76 @@ if(modulos.has("DAW")){
     console.log("No esta")
 }
 
-const modulosOrdenados = new Map([...modulos.entries()].sort());
-console.log("Ordenado por claves:", modulosOrdenados);
+const ordenado = new Map([...modulos.entries()].sort());
+console.log(ordenado); //o hacer un let array=[...modulos ] y array.sort()
+
+
+//23
+const modulos = new Map();
+
+
+function agregarModulo(nombre, duracion, numAlumnos) {
+    modulos.set(nombre, { duracion: duracion, numAlumnos: numAlumnos });
+}
+
+agregarModulo('DWS', '40 horas', 30);
+agregarModulo('DWEC', '60 horas', 25);
+agregarModulo('EIEM', '30 horas', 20);
+
+console.log(modulos)
+
+
+for(let [clave,valor] of modulos){
+    if(clave=="DWS"){
+        console.log("El numero de alumnos es",valor["numAlumnos"])
+    }
+}
+
+var suma=0;
+for(let [clave,valor] of modulos){
+    suma=suma+valor["numAlumnos"]
+}
+console.log("El numero total de alumnos es",suma)
+
+
+let array=[1,2,3,4,6,7,8,9,1,1,2,2,3,3]
+let repetido = (array) => {
+    let con = new Set(array);
+    let resultado = [...con];  
+    console.log(resultado);     
+};
+repetido(array);*/
+
+
+//Objetos 
+
+
+const coordenadas = {
+    x: undefined,
+    y: undefined
+};
+
+function Coordenadas(x, y) {
+    this.x = x;
+    this.y = y;
+
+    this.metodo1=()=>{
+        if(this.x>0 && this.y>0){
+            console.log("Cuadrante 1")
+        }
+        if(this.x<0 && this.y<0){
+            console.log("Cuadrante 3")
+        }
+        if(this.x>0 && this.y<0){
+            console.log("Cuadrante 4")
+        }
+        if(this.x<0 && this.y>0){
+            console.log("Cuadrante 2")
+        }
+
+    }
+}
+
+const coord1=new Coordenadas(-10,20);
+coord1.metodo1();
+
