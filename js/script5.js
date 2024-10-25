@@ -346,12 +346,6 @@ repetido(array);*/
 
 //Objetos 
 
-
-const coordenadas = {
-    x: undefined,
-    y: undefined
-};
-
 function Coordenadas(x, y) {
     this.x = x;
     this.y = y;
