@@ -341,32 +341,125 @@ let repetido = (array) => {
     let resultado = [...con];  
     console.log(resultado);     
 };
-repetido(array);*/
+repetido(array);
 
 
 //Objetos 
+//25
+class Coordenadas {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 
-function Coordenadas(x, y) {
-    this.x = x;
-    this.y = y;
 
-    this.metodo1=()=>{
-        if(this.x>0 && this.y>0){
+    metodo1 = () => {
+        if (this.x > 0 && this.y > 0) {
             console.log("Cuadrante 1")
         }
-        if(this.x<0 && this.y<0){
+        if (this.x < 0 && this.y < 0) {
             console.log("Cuadrante 3")
         }
-        if(this.x>0 && this.y<0){
+        if (this.x > 0 && this.y < 0) {
             console.log("Cuadrante 4")
         }
-        if(this.x<0 && this.y>0){
+        if (this.x < 0 && this.y > 0) {
             console.log("Cuadrante 2")
         }
 
     }
 }
 
-const coord1=new Coordenadas(-10,20);
+const coord1 = new Coordenadas(-10, 20);
 coord1.metodo1();
 
+function Coordenada(x, y) {
+    this.x = x;
+    this.y = y;
+
+    this.metodo1 = () => {
+        if (this.x > 0 && this.y > 0) {
+            console.log("Cuadrante 1")
+        }
+        if (this.x < 0 && this.y < 0) {
+            console.log("Cuadrante 3")
+        }
+        if (this.x > 0 && this.y < 0) {
+            console.log("Cuadrante 4")
+        }
+        if (this.x < 0 && this.y > 0) {
+            console.log("Cuadrante 2")
+        }
+
+    }
+}
+
+const coord2 = new Coordenada(-10, 20);
+coord2.metodo1();
+
+class Rectangulo extends Coordenadas {
+    constructor(punto1, punto2) {
+        super(punto1.x, punto1.y);
+        this.alto = Math.abs(punto1.y - punto2.y);
+        this.ancho = Math.abs(punto1.x - punto2.x);
+    }
+
+    perimetro() {
+        return 2 * (this.alto + this.ancho);
+    }
+
+    area() {
+        return this.alto * this.ancho;
+    }
+
+}
+
+let coord3 = new Coordenadas(20, 30)
+
+let rectangulo1 = new Rectangulo(coord1, coord3);
+console.log(rectangulo1.alto)
+console.log(rectangulo1.perimetro())
+console.log(rectangulo1.area())
+
+
+function Rectangulof(punto1, punto2) {
+    this.alto = Math.abs(punto1.y - punto2.y);
+    this.ancho = Math.abs(punto1.x - punto2.x);
+
+
+}
+
+
+//Ejercicio 20 con objetos
+
+class Persona {
+    constructor(dni, nombre, edad) {
+        this.dni = dni;
+        this.nombre=nombre;
+        this.edad=edad;
+    }
+    muestra(){
+        return this.nombre + " tiene dni "+this.dni+" y tiene una edad de "+ this.edad+" años"; 
+    }
+
+}
+
+const per1=new Persona("34423453L","Pepe",18)
+console.log(per1.muestra())*/
+
+//Ejercicio 21 con objetos
+
+class Persona {
+    constructor(dni, nombre, edad) {
+        this.dni = dni;
+        this.nombre=nombre;
+        this.edad=edad;
+    }
+    muestra(){
+        return this.nombre + " tiene dni "+this.dni+" y tiene una edad de "+ this.edad+" años"; 
+    }
+
+}
+
+const per1=new Persona("34423453L","Pepe",18)
+console.log(per1.muestra())*/
