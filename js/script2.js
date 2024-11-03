@@ -12,9 +12,10 @@ function contar(){
                 contador2++;
             }
 
-            if(nombre.search("ñ")){
+            if( nombre.charAt()=="ñ"){
                 contado3++;
             }
+
 
 
             contador++;
