@@ -43,6 +43,7 @@ class Alumno {
             }
         }
         let max=0;
+        // esto seria otra forma que es del lolo let notas[...this.notasMAp] letnotasmasalta=math.max(...this.notasmapvalues()) const notasmasaltas=notas.filter(nota=>nota[1] === notasMasAlta); return notasMasAltas;
         if(notas.length>1){
             for(let i=0;i<notas.length;i++){
                 if(notas[i]>max){
