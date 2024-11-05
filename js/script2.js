@@ -364,7 +364,7 @@ if(matricula.match(m)){
     alert("No es correcta");
 }
 
-//17
+//16
 var correo= prompt("Introduce correo postal ")
 var c= new RegExp("^[0-5][0-2][0-9]{3}$|[0-4][0-9]{4}$",'g');
 
@@ -375,6 +375,9 @@ if(correo.match(c)){
 }else{
     alert("No es correcta");
 }
+
+//17
+[0-1][0-9]\:[0-5][0-9]|[0-2][0-3]\:[0-5][0-9]
 
 //18
 var cordenadas= prompt("Introduce coordenadas ")
