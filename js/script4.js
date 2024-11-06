@@ -38,14 +38,17 @@ let color=window.screen.colorDepth;
 alert("el ancho "+ancho +"\nla altura: "+ altura + "\nColor "+ color)
 
 //5
-setInterval(displayHello, 60000);
-
 function displayHello() {
-  var hora = new Date();
-  minutos = minutos < 10 ? '0' + minutos : minutos;
-  document.querySelector("title").innerHTML = (hora.getHours()+":"+minutos);
-}
+  var hora = new Date();  
+  var minutos = hora.getMinutes();  
+  
 
+  minutos = minutos < 10 ? '0' + minutos : minutos;
+
+
+  document.querySelector("title").innerHTML = hora.getHours() + ":" + minutos;
+}
+setInterval(displayHello, 6000);
 //6
 let ventana;
 
