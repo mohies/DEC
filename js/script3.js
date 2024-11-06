@@ -85,10 +85,18 @@ var m=0;
 if(fecha.getDay()===fecha2.getDay() && fecha.getMonth()===fecha2.getMonth() && fecha.getFullYear()===fecha2.getFullYear()){
     alert("FELICIDIDADES")
 }else if(fecha.getTime()>fecha2.getTime()){
-    let diferencia = (fecha - fecha2) / (1000 * 60 * 60 * 24);
+    let diferencia = (fecha.getTime() - fecha2.getTime()) / (1000 * 60 * 60 * 24);
     diferencia=Math.round(diferencia)
         alert(diferencia)
 
+}else {
+   
+    fecha.setFullYear(fecha2.getFullYear() + 1); 
+
+    
+    let diferencia = (fecha - fecha2) / (1000 * 60 * 60 * 24); 
+    diferencia = Math.round(diferencia);  
+    alert(`Tu cumpleaños ya pasó este año. Faltan ${diferencia} días para tu próximo cumpleaños.`);
 }
 
 //----------------------------------------------------------------------------------
