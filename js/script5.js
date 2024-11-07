@@ -4,7 +4,7 @@ let aN = [123, 4567, 89, 101112];
 function numCifras() {
     let contador = 0;
     for (let i in arguments) {
-        contador += String(parseInt[i]).length;
+        contador += String(arguments[i]).length;
     }
     console.log(contador);
 }
@@ -18,7 +18,6 @@ let numCifras2 = (...a) => {
     console.log(contador);
 };
 numCifras2(...aN);
-
 
 //6
 
