@@ -177,24 +177,24 @@ function buscarPorFecha(fecha) {
 }
 
 function eliminarPersona() {
-let dni = prompt("Escribe el dni de la persona que quieres eliminar");
+    let dni = prompt("Escribe el DNI de la persona que quieres eliminar");
+
+    // Buscar la persona en el array por el DNI
+    let indice = array2.findIndex((persona) => persona[3] === dni);
     
-  
-let personaAEliminar = array2.find((persona) => persona[3] === dni);
-    
-   
-    if (personaAEliminar!=null) {
-        let confirmacion = confirm("quieres eliminar a" + personaAEliminar[0] + " con DNI " + dni);
-        
-       
+    if (indice !== -1) {
+        let personaAEliminar = array2[indice];  // Obtener la persona por el índice
+        let confirmacion = confirm("¿Quieres eliminar a " + personaAEliminar[0] + " con DNI " + dni + "?");
+
         if (confirmacion) {
-            array2 = array2.filter((persona) => persona[3] !== dni);
-            console.log(array2); 
-        }else{
-        alert("Pues nada no la eliminamos");
+            // Eliminar la persona usando el índice
+            array2.splice(indice, 1);  
+            console.log(array2);  // Mostrar el array actualizado
+        } else {
+            alert("Pues nada, no la eliminamos.");
         }
     } else {
-        alert("Persona no encontrada");
+        alert("Persona no encontrada.");
     }
 }
 
