@@ -28,36 +28,21 @@ class Alumno {
         console.log("La media es " + resultado)
     }
 
-    mejornota() {
-        var notaMaxima = 0;
-        var mejorAsignatura = "";
-        let notas=[];
-        let mejorAsignaturas=[];
-        for (let [clave, valor] of this.nota) {
-            if (valor >= notaMaxima) {
-                notaMaxima = valor;
-                mejorAsignatura = clave;
-                notas.push(notaMaxima)
-                mejorAsignaturas.push(mejorAsignatura)
-
-            }
+     mejornota() {
+        // Obtenemos la máxima nota
+        const notaMaxima = Math.max(...this.nota.values());
+    
+        // Filtramos las asignaturas con la mejor nota
+        const mejoresAsignaturas = [...this.nota].filter(([asignatura, nota]) => nota === notaMaxima);
+    
+        // Si hay más de una asignatura con la misma nota máxima
+        if (mejoresAsignaturas.length > 1) {
+            return mejoresAsignaturas.map(([asignatura,nota]) => asignatura);
+        } else {
+            // Si solo hay una asignatura con la mejor nota
+            return `La mejor nota es en la asignatura "${mejoresAsignaturas[0][0]}" con un ${notaMaxima}`;
         }
-        let max=0;
-        // esto seria otra forma que es del lolo let notas[...this.notasMAp] letnotasmasalta=math.max(...this.notasmapvalues()) const notasmasaltas=notas.filter(nota=>nota[1] === notasMasAlta); return notasMasAltas;
-        if(notas.length>1){
-            for(let i=0;i<notas.length;i++){
-                if(notas[i]>max){
-                    max=notas[i];
-                }
-            }
-            let no=notas.filter((elemento)=>elemento==max)
-            return no;
-        }else{
-            return "La mejor nota es de la asignatura " + mejorAsignatura + " con un " + notaMaxima;
-        }
-        
     }
-
 }
 
 const al1 = new Alumno("Pepe", "23424234F", "2ºDAW")
