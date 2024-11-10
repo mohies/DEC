@@ -156,7 +156,7 @@ alreves()
 function correo(){
     var email = prompt("Introduce un email ");
 
-    while(email.charAt()!='@' && !email.match(".com")){
+    while(email.indexOf('@') !== -1 && !email.match(".com")){
         email=prompt("Introduce un email correcto ")
     }
 
