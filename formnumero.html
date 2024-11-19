@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Envío de SMS</title>
+</head>
+<body>
+
+    <h2>Formulario de Envío de SMS</h2>
+
+    <form id="smsForm">
+        <label for="smsText">Mensaje (Máximo 145 caracteres):</label><br>
+        <textarea id="smsText" name="smsText" rows="4" cols="50" maxlength="145" pattern="[A-Za-z0-9.,!? ]*" placeholder="Escribe tu mensaje..." required></textarea><br>
+        
+        <span id="cuenta">145 caracteres restantes</span><br><br>
+        
+        <input type="submit" name="submit" id="submit" value="Enviar">
+    </form>
+
+    <script src="js/formnumero.js"></script>
+</body>
+</html>

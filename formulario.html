@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario</title>
     <style>
-        form{
+        form {
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
+
         form ul {
             list-style: none;
             padding: 0;
@@ -57,9 +58,7 @@
             <li>
                 <label for="dia">Día</label>
                 <input type="text" id="dia" name="dia" placeholder="Día" pattern="\d{1,2}" required />
-            </li>
-
-            <li>
+           
                 <label for="mes">Mes</label>
                 <select id="mes" name="mes" required>
                     <option value="">Selecciona el mes</option>
@@ -76,11 +75,10 @@
                     <option value="11">Noviembre</option>
                     <option value="12">Diciembre</option>
                 </select>
-            </li>
-
-            <li>
+            
                 <label for="anio">Año</label>
                 <input type="number" id="anio" name="anio" min="1970" max="2024" placeholder="Año" required />
+                <span id="edad"></span>
             </li>
 
             <li>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Tipo Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .pregunta {
+            margin-bottom: 20px;
+        }
+
+        .respuesta {
+            margin: 5px 0;
+        }
+
+        .resultado {
+            margin-top: 20px;
+        }
+
+        .campo-respuesta {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Examen Tipo Test</h1>
+
+    <form id="examen">
+        <div class="pregunta">
+            <p><strong>1. ¿Cuál es la capital de España?</strong></p>
+            <div class="respuesta">
+                <input type="radio" id="respuesta1A" name="pregunta1" value="Madrid" required>
+                <label for="respuesta1A">Madrid</label>
+            </div>
+            <div class="respuesta">
+                <input type="radio" id="respuesta1B" name="pregunta1" value="Barcelona" required>
+                <label for="respuesta1B">Barcelona</label>
+            </div>
+            <div class="respuesta">
+                <input type="radio" id="respuesta1C" name="pregunta1" value="Sevilla" required>
+                <label for="respuesta1C">Sevilla</label>
+            </div>
+            <div class="respuesta">
+                <input type="radio" id="respuesta1D" name="pregunta1" value="Valencia" required>
+                <label for="respuesta1D">Valencia</label>
+            </div>
+            <div class="campo-respuesta">
+                <span id="correcta1"></span>
+            </div>
+        </div>
+        <div class="pregunta">
+            <p><strong>2. ¿En qué continente se encuentra Egipto?</strong></p>
+            <div class="respuesta">
+                <input type="radio" id="respuesta2A" name="pregunta2" value="África" required>
+                <label for="respuesta2A">África</label>
+            </div>
+            <div class="respuesta">
+                <input type="radio" id="respuesta2B" name="pregunta2" value="Asia" required>
+                <label for="respuesta2B">Asia</label>
+            </div>
+            <div class="respuesta">
+                <input type="radio" id="respuesta2C" name="pregunta2" value="Europa" required>
+                <label for="respuesta2C">Europa</label>
+            </div>
+            <div class="respuesta">
+                <input type="radio" id="respuesta2D" name="pregunta2" value="América" required>
+                <label for="respuesta2D">América</label>
+            </div>
+            <div class="campo-respuesta">
+                <span id="correcta2"></span>
+            </div>
+        </div>
+
+        <input type="submit" value="Enviar" id="submit">
+    </form>
+
+    <script src="js/test.js"></script>
+</body>
+
+</html>
