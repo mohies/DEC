@@ -2,6 +2,7 @@ window.addEventListener("load",inicializar,false);
 function inicializar(){
     document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
     document.getElementById("submit").addEventListener("click",mostrar)
+    document.getElementById("formulario").addEventListener("submit",validar)
 }
 
 function mostrardatos(event) {
@@ -44,12 +45,30 @@ function mostrardatos(event) {
 //Añadir un campo de texto en el ejercicio anterior,  al lado de la fecha de nacimiento en el que el usuario no pueda escribir y aparezca la edad del usuario.
 
 function mostrar(){
-    const anio = document.getElementById('anio').value.toUpperCase();
+    const anio = document.getElementById('anio').value;
     const fecha = new Date();
 
     let edad= fecha.getFullYear() - Number(anio);
 
     document.getElementById("edad").textContent=`Edad: ${edad} años`;
 
+
+}
+
+function validar(event){
+    event.preventDefault();
+    const anio = document.getElementById('anio').value;
+    const fecha = new Date();
+    let edad= fecha.getFullYear() - Number(anio);
+   
+    if(edad>=18){
+       console.log("eres mayor de edad")
+       return;
+    }
+
+    if(edad<18){
+        alert("Eres menor de edad")
+        event.preventDefault()
+    }
 
 }
