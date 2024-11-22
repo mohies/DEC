@@ -11,10 +11,11 @@
 
     <form id="smsForm">
         <label for="smsText">Mensaje (Máximo 145 caracteres):</label><br>
-        <textarea id="smsText" name="smsText" rows="4" cols="50" maxlength="145" pattern="[A-Za-z0-9.,!? ]*" placeholder="Escribe tu mensaje..." required></textarea><br>
+        <textarea id="smsText" name="smsText" rows="4" cols="50" maxlength="145" pattern="[A-Za-z0-9.,!?ÁáÉéÍíÓóÚúÑñ ]*" placeholder="Escribe tu mensaje..." required></textarea>
+
         
         <span id="cuenta">145 caracteres restantes</span><br><br>
-        
+        <span id="error"></span>
         <input type="submit" name="submit" id="submit" value="Enviar">
     </form>
 

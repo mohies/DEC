@@ -1,7 +1,7 @@
 window.addEventListener("load",inicializar,false);
 function inicializar(){
-    document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
-    document.getElementById("submit").addEventListener("click",mostrar)
+   // document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
+    //document.getElementById("submit").addEventListener("click",mostrar)
     document.getElementById("formulario").addEventListener("submit",validar)
 }
 
@@ -56,7 +56,6 @@ function mostrar(){
 }
 
 function validar(event){
-    event.preventDefault();
     const anio = document.getElementById('anio').value;
     const fecha = new Date();
     let edad= fecha.getFullYear() - Number(anio);
