@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlace con Cambio de Fondo</title>
+    <style>
+        /* Estilo base para el enlace */
+        a {
+            text-decoration: none;
+            padding: 10px;
+            font-size: 16px;
+       
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <a href="#" id="miEnlace">Pasa el ratón sobre este enlace</a>
+
+    <script>
+        window.addEventListener("load", inicializar, false);
+
+        function inicializar() {
+            document.getElementById("miEnlace").addEventListener("mouseenter", function(){
+                document.getElementById("miEnlace").style.backgroundColor="lightblue";
+            });
+            document.getElementById("miEnlace").addEventListener("mouseleave", function () {
+                document.getElementById("miEnlace").style.backgroundColor = ""; 
+            });
+           
+        }
+
+    </script>
+
+</body>
+
+</html>

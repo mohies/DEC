@@ -1,8 +1,12 @@
-window.addEventListener("load",inicializar,false);
-function inicializar(){
-   // document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
+window.addEventListener("load", inicializar, false);
+
+function inicializar() {
+    //1 document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
     //document.getElementById("submit").addEventListener("click",mostrar)
-    document.getElementById("formulario").addEventListener("submit",validar)
+    //8 document.getElementById("formulario").addEventListener("submit",validar)
+    //9 document.getElementById("boton").addEventListener("click",confirma)
+    document.getElementById("formulario").addEventListener("input", teclado)
+    
 }
 
 function mostrardatos(event) {
@@ -37,37 +41,81 @@ function mostrardatos(event) {
     document.body.innerHTML += contenido;
 
 
-    let ventana= window.open('', 'Ventana nueva',"");
+    let ventana = window.open('', 'Ventana nueva', "");
     ventana.document.write(contenido)
 
 }
 
 //Añadir un campo de texto en el ejercicio anterior,  al lado de la fecha de nacimiento en el que el usuario no pueda escribir y aparezca la edad del usuario.
 
-function mostrar(){
+function mostrar() {
     const anio = document.getElementById('anio').value;
     const fecha = new Date();
 
-    let edad= fecha.getFullYear() - Number(anio);
+    let edad = fecha.getFullYear() - Number(anio);
 
-    document.getElementById("edad").textContent=`Edad: ${edad} años`;
+    document.getElementById("edad").textContent = `Edad: ${edad} años`;
 
 
 }
 
-function validar(event){
+function validar(event) {
     const anio = document.getElementById('anio').value;
     const fecha = new Date();
-    let edad= fecha.getFullYear() - Number(anio);
-   
-    if(edad>=18){
-       console.log("eres mayor de edad")
-       return;
+    let edad = fecha.getFullYear() - Number(anio);
+
+
+    if (edad < 18) {
+        let campo = document.getElementById('anio')
+
+        let valor = document.getElementById("error");
+        valor.textContent = "ERROR INTRODUCE UNA FECHA QUE SEAS MAYOR DE EDAD";
+        valor.style.color = "red";
+        campo.focus()
+        event.preventDefault()
+
     }
 
-    if(edad<18){
-        alert("Eres menor de edad")
+    let contraseña1 = document.getElementById("pass1").value;
+    let contraseña2 = document.getElementById("pass2").value;
+
+    if (contraseña1 !== contraseña2) {
+        alert("Las contraseñas deben ser identicas")
         event.preventDefault()
     }
 
+    let formato = /^[A-Za-z0-9Ññ]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/; /* o si no .+@\w+\.com*/
+    let email = document.getElementById("email").value;
+    if (!formato.test(email)) {
+        let campo = document.getElementById('email')
+        alert("introduce un email correcto")
+        campo.focus()
+        event.preventDefault()
+
+    }
+
+
+}
+
+function confirma() {
+    confirm("quieres resetear los campos?")
+    if (confirm) {
+        document.getElementById("formulario").reset();
+    }
+}
+
+function teclado(event) {
+    const value = event.target.value;
+
+
+    // Comprobar si el campo está vacío
+    if (value.trim() === "") {
+        document.getElementById("error1").textContent = "No puede estar vacío";
+    } else if (value.length < 6) {
+        // Si el valor tiene menos de 6 caracteres, mostrar el error
+        document.getElementById("error1").textContent = "Debe tener al menos 6 caracteres";
+    } else {
+        // Si el campo tiene al menos 6 caracteres, limpiar el error
+        document.getElementById("error1").textContent = "";
+    }
 }

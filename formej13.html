@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Texto en Minúsculas</title>
+</head>
+
+<body>
+
+    <form id="miFormulario">
+        <label for="miCuadroTexto">Introduce algún texto:</label>
+        <input type="text" id="miCuadroTexto" name="miCuadroTexto">
+    </form>
+
+</body>
+<script>
+    window.addEventListener("load", inicializar, false);
+
+    function inicializar() {
+        document.getElementsByTagName("body")[0].addEventListener("click", function () {
+            let valor = event.target.tagName;
+            console.log(valor)
+
+            if (valor !== "INPUT") {
+                let valor2 = document.getElementById("miCuadroTexto").value;
+                valor2 = valor2.toUpperCase();
+
+                document.getElementById("miCuadroTexto").value = valor2;
+            }
+        })
+
+    }
+</script>
+
+</html>

@@ -1,21 +1,30 @@
 window.addEventListener("load", inicializar, false);
 
 function inicializar() {
-    document.getElementById("imagen").addEventListener("click", validateForm)
+    // Asocia el evento de clic en la imagen para validar el formulario
+    document.getElementById("imagen").addEventListener("click", validateForm);
 }
 
-function validateForm() {
+function validateForm(event) {
+
+    event.preventDefault();
+
+
     let x = document.getElementById("nombre").value;
-    if (x !== x.toUpperCase()) {
-        alert("tiene que estar en mayusculas");
+
+  
+    if (x === "") {
+        alert("El campo no puede estar vacío.");
         return false;
-    } else if (x == "") {
-        alert("esta vacio");
-        return false;
-    } else {
-        document.getElementsByTagName('form')[0].action = "mailto()"; // o en vez de [0] puedo poner [name]
-        document.onsubmit()[0];
     }
 
-    return true
+    
+    if (x !== x.toUpperCase()) {
+        alert("El nombre debe estar en mayúsculas.");
+        return false;
+    }
+
+    
+    document.getElementsByTagName('form')[0].submit();
+    return true;
 }
