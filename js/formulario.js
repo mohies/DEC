@@ -2,13 +2,16 @@ window.addEventListener("load", inicializar, false);
 
 function inicializar() {
     //1 document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
-    //document.getElementById("submit").addEventListener("click",mostrar)
-    //8 document.getElementById("formulario").addEventListener("submit",validar)
+    //3document.getElementById("submit").addEventListener("click",mostrar)
     //9 document.getElementById("boton").addEventListener("click",confirma)
-    document.getElementById("formulario").addEventListener("input", teclado)
-    
+    [...document.getElementsByTagName("input")].forEach((a) => a.addEventListener("input", teclado2));
+    [...document.getElementsByTagName("input")].forEach((a) => a.addEventListener("blur", teclado));
+    document.getElementById("formulario").addEventListener("blur", teclado)
+    document.getElementById("formulario").addEventListener("submit", validar)
+   
 }
 
+/* //1
 function mostrardatos(event) {
     event.preventDefault();
 
@@ -44,10 +47,11 @@ function mostrardatos(event) {
     let ventana = window.open('', 'Ventana nueva', "");
     ventana.document.write(contenido)
 
-}
+}*/
 
 //Añadir un campo de texto en el ejercicio anterior,  al lado de la fecha de nacimiento en el que el usuario no pueda escribir y aparezca la edad del usuario.
 
+/*2
 function mostrar() {
     const anio = document.getElementById('anio').value;
     const fecha = new Date();
@@ -57,7 +61,7 @@ function mostrar() {
     document.getElementById("edad").textContent = `Edad: ${edad} años`;
 
 
-}
+}*/
 
 function validar(event) {
     const anio = document.getElementById('anio').value;
@@ -79,19 +83,65 @@ function validar(event) {
     let contraseña1 = document.getElementById("pass1").value;
     let contraseña2 = document.getElementById("pass2").value;
 
-    if (contraseña1 !== contraseña2) {
-        alert("Las contraseñas deben ser identicas")
+    if (contraseña1 !== contraseña2 || (contraseña1.trim() === "" || contraseña2.trim() === "")) {
+        let campo = document.getElementById("pass1");
+        campo.focus()
+         document.getElementById("errorpass").textContent = "Las contraseñas deben ser identicas y no pueden quedar vacias";
+        document.getElementById("errorpass").style.color = "red"
         event.preventDefault()
     }
+
+    
 
     let formato = /^[A-Za-z0-9Ññ]+@[A-Za-z0-9-]+\.[A-Za-z]{2,}$/; /* o si no .+@\w+\.com*/
     let email = document.getElementById("email").value;
     if (!formato.test(email)) {
         let campo = document.getElementById('email')
-        alert("introduce un email correcto")
+        document.getElementById("erroremail").textContent = "Introduce un email correcto";
+        document.getElementById("erroremail").style.color = "red"
         campo.focus()
         event.preventDefault()
 
+    }
+    let formatodia = /^\d{1,2}$/;
+    let dia = document.getElementById("dia").value;
+    if (!formatodia.test(dia)) {
+        document.getElementById("errordia").textContent = "Introduce un dia";
+        document.getElementById("errordia").style.color = "red"
+        event.preventDefault()
+    } else {
+        document.getElementById("errordia").textContent = "";
+    }
+
+
+    let formatomes = /\s/;
+    let mes = document.getElementById("mes").value;
+
+    if (!formatomes.test(mes)) {
+        document.getElementById("errormes").textContent="Introduce un mes";
+        document.getElementById("errormes").style.color="red";
+        event.preventDefault()
+
+    }
+
+    let formatonombre=/\w{3,16}/;
+    let formatoespacio=/\s/;
+    let nombre=document.getElementById("nombre").value;
+    if(nombre.trim()===""){
+        document.getElementById("error1").textContent="No puede quedar vacio";
+        document.getElementById("error1").style.color="red";
+        event.preventDefault()
+
+    }else if(formatoespacio.test(nombre)){
+        document.getElementById("error1").textContent="No puede haber espacios";
+        document.getElementById("error1").style.color="red";
+
+    }else if(!formatonombre.test(nombre)){
+        document.getElementById("error1").textContent="Introduce formato correcto";
+        document.getElementById("error1").style.color="red";
+    }
+    else{
+        document.getElementById("error1").textContent="";
     }
 
 
@@ -105,17 +155,40 @@ function confirma() {
 }
 
 function teclado(event) {
-    const value = event.target.value;
+    const input = event.target;   
+    const value = input.value;    
+
+   
+    const errorElement = input.nextElementSibling; //para coger el siguiente elemento
+
+  
+    if (value.trim() === "") {
+        errorElement.textContent = "No puede estar vacío";
+    } else {
+        
+        errorElement.textContent = "";
+    }
+}
+
+function teclado2(event) {
+    const input = event.target;   
+    const value = input.value;    
+
+   
+    const errorElement = input.nextElementSibling;
 
 
     // Comprobar si el campo está vacío
-    if (value.trim() === "") {
-        document.getElementById("error1").textContent = "No puede estar vacío";
-    } else if (value.length < 6) {
-        // Si el valor tiene menos de 6 caracteres, mostrar el error
-        document.getElementById("error1").textContent = "Debe tener al menos 6 caracteres";
+    if (value.trim().length<6) {
+        errorElement.textContent = "tiene que tener 6 caracteres ";
     } else {
-        // Si el campo tiene al menos 6 caracteres, limpiar el error
-        document.getElementById("error1").textContent = "";
+        // Si el campo tiene  6 caracteres que no salga error
+        errorElement.textContent = "";
     }
 }
+
+
+
+
+
+
