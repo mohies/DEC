@@ -13,7 +13,7 @@
         <!-- Nombre del usuario -->
         <div>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <input type="text" id="nombre" name="nombre" >
         </div>
 
         <!-- Número de habitación -->
@@ -26,26 +26,26 @@
         <div>
             <p>Seleccione su tipo de café:</p>
             <label>
-                <input type="checkbox" name="cafe" value="espresso"> Espresso
+                <input type="radio" name="cafe" value="espresso"> Espresso
             </label><br>
             <label>
-                <input type="checkbox" name="cafe" value="cappuccino"> Cappuccino
+                <input type="radio" name="cafe" value="cappuccino"> Cappuccino
             </label><br>
             <label>
-                <input type="checkbox" name="cafe" value="moka"> Moka
+                <input type="radio" name="cafe" value="moka"> Moka
             </label><br>
             <label>
-                <input type="checkbox" name="cafe" value="latte"> Latte
+                <input type="radio" name="cafe" value="latte"> Latte
             </label><br>
             <label>
-                <input type="checkbox" name="cafe" value="americano"> Americano
+                <input type="radio" name="cafe" value="americano"> Americano
             </label>
         </div>
 
         <p>¡Su café será enviado a su número de habitación!</p>
 
         <div>
-            <button type="submit">Enviar Pedido</button>
+            <button id="button" type="submit">Enviar Pedido</button>
         </div>
 
     </form>
