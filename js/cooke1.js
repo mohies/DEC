@@ -2,8 +2,8 @@ window.addEventListener("load", inicializar, false);
 
 function inicializar() {
 
-  checkACookieExists();
 
+  document.getElementById("nombre").addEventListener("focus", checkACookieExists);
   document.getElementById("btn").addEventListener("click", setCookie);
 }
 
@@ -38,24 +38,20 @@ function setCookie() {
   const habitacionCookie = document.cookie.split(";").some(item => item.trim().startsWith("hab="));
   const cafeCookie = document.cookie.split(";").some(item => item.trim().startsWith("cafe="));
 
-  if (nameCookie && habitacionCookie && cafeCookie) {
-    let contador = getCookie('contador');
-    contador = parseInt(contador) + 1;
-    document.cookie = `contador=${contador};SameSite=None; Secure`;
-
-
-    if (contador >= 3) {
-      alert(" Tu próximo café es gratis.");
-    }
-  } else {
-
-    document.cookie = `name=${nombre}; Samesite=None; Secure`;
-    document.cookie = `hab=${habitacion}; Samesite=None; Secure`;
-    document.cookie = `cafe=${cafe.value}; Samesite=None; Secure`;
-    document.cookie = `contador=1; Samesite=None; Secure`;
-
-    alert(`${nombre} enviaremos tu café ${cafe.value} a la habitación ${habitacion}.`);
+  document.cookie = `name=${nombre}; Samesite=None; Secure`;
+  document.cookie = `hab=${habitacion}; Samesite=None; Secure`;
+  document.cookie = `cafe=${cafe.value}; Samesite=None; Secure`;
+  
+  let contador = getCookie('contador');
+  contador = contador ? parseInt(contador) +1   : 1;
+  document.cookie = `contador=${contador}; Samesite=None; Secure`;
+  
+  if (contador >= 3) {
+    alert("Tu próximo café es gratis.");
   }
+  
+  alert(`${nombre} enviaremos tu café ${cafe.value} a la habitación ${habitacion}.`);
+  
 }
 
 
@@ -71,10 +67,18 @@ function checkACookieExists() {
     const cafe = getCookie('cafe');
     const contador = getCookie('contador')
     if (nombre && habitacion && cafe) {
-      alert(`Bienvenido de nuevo ${nombre} el último café que pediste fue ${cafe} en la habitación ${habitacion}`);
+      document.getElementById("nombre").value = `${nombre}`;
+      document.getElementById("habitacion").value = `${habitacion}`;
+      const cafeOption = document.querySelector(`input[name="cafe"][value="${cafe}"]`);
+      if (cafeOption) {
+        cafeOption.checked = true;
+      }
+
 
       if (contador >= 3) {
         alert("Tu próximo café es gratis");
+        document.cookie = `contador=; Samesite=None; Secure`;
+
       }
 
     }

@@ -2,27 +2,13 @@ window.addEventListener("load", inicializar, false);
 
 function inicializar() {
 
-  checkACookieExists();
+  checkStorageExists();
 
-  document.getElementById("btn").addEventListener("click", setCookie);
+  document.getElementById("btn").addEventListener("click", setStorage);
 }
 
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
-function setCookie() {
+function setStorage() {
   const nombre = document.getElementById("nombre").value;
   const habitacion = document.getElementById("habitacion").value;
   const cafe = document.querySelector('input[name="cafe"]:checked');
@@ -32,11 +18,9 @@ function setCookie() {
     return;
   }
 
-
-
-  const nameCookie = document.cookie.split(";").some(item => item.trim().startsWith("name="));
-  const habitacionCookie = document.cookie.split(";").some(item => item.trim().startsWith("hab="));
-  const cafeCookie = document.cookie.split(";").some(item => item.trim().startsWith("cafe="));
+  const nameCookie = localStorage.getItem("name");
+  const habitacionCookie = localStorage.getItem("hab");
+  const cafeCookie = localStorage.getItem("cafe");
 
   if (nameCookie && habitacionCookie && cafeCookie) {
     let contador = localStorage.getItem("contador");
@@ -46,6 +30,7 @@ function setCookie() {
 
     if (contador >= 3) {
       alert(" Tu próximo café es gratis.");
+      localStorage.setItem("contador", `1`)
     }
   } else {
     localStorage.setItem("name", `${nombre}`);
@@ -60,23 +45,24 @@ function setCookie() {
 
 
 
-function checkACookieExists() {
-  const nameCookie = document.cookie.split(";").some(item => item.trim().startsWith("name="));
-  const habitacionCookie = document.cookie.split(";").some(item => item.trim().startsWith("hab="));
-  const cafeCookie = document.cookie.split(";").some(item => item.trim().startsWith("cafe="));
-  if (nameCookie && habitacionCookie && cafeCookie) {
-    const nombre = getCookie('name');
-    const habitacion = getCookie('hab');
-    const cafe = getCookie('cafe');
-    const contador = getCookie('contador')
-    if (nombre && habitacion && cafe) {
-      alert(`Bienvenido de nuevo ${nombre} el último café que pediste fue ${cafe} en la habitación ${habitacion}`);
+function checkStorageExists() {
+  // Recuperamos los datos de localStorage
+  const nameStorage = localStorage.getItem("name");
+  const habitacionStorage = localStorage.getItem("hab");
+  const cafeStorage = localStorage.getItem("cafe");
+  const contadorStorage = localStorage.getItem("contador");
 
-      if (contador >= 3) {
-        alert("Tu próximo café es gratis");
-      }
+  // Verificamos si todos los datos necesarios existen en localStorage
+  if (nameStorage && habitacionStorage && cafeStorage) {
+    // Si existen, mostramos un mensaje de bienvenida y detalles sobre el café
+    alert(`Bienvenido de nuevo ${nameStorage}, el último café que pediste fue ${cafeStorage} en la habitación ${habitacionStorage}`);
 
+    // Si el contador alcanza 3, mostramos el mensaje de café gratis
+    if (contadorStorage && parseInt(contadorStorage) >= 3) {
+      alert("Tu próximo café es gratis");
     }
+  } else {
+    // Si no existen los datos, indicamos que falta información
+    alert("No se ha encontrado información previa. Por favor, realiza un pedido primero.");
   }
-
 }
