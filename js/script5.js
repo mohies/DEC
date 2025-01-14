@@ -57,6 +57,7 @@ let esMenor=(...numeros) => Math.min(...numeros);
 
 console.log(esMenor(2,3,4,5,6));
 
+
 //9 PARTE 2
 let colocaEnMedio=(a1,a2)=>{
     a1.splice((a1.length/2),0,a2)
@@ -81,6 +82,7 @@ let sumaArgPares=(...a)=>{
 
 console.log(sumaArgPares(1,2,6,8))
 
+
 //EJERICCIO 17
 var array= [];
 var p= prompt("Introduce una palabra ")
@@ -101,6 +103,7 @@ document.getElementById("abrir"),addEventListener("click",()=>{
 
 })
 
+
 //19
 var array2 = [];
 var datos = prompt("Introduce lo siguiente [Nombre, Apellido1, Apellido2, DNI, fecha Nacimiento]");
@@ -114,7 +117,7 @@ while (datos!=="") {
 console.log(array2);
 
 var array2=[];
-array2.push(["Juan", "Pérez", "Gómez", "12345678A", "01/01/2007"]);
+array2.push(["Juan", "Pérez", "Gómez", "12345678A", "01/01/2008"]);
 array2.push(["Ana", "Pérez", "Gómez", "87654321B", "02/02/1992"]);
 array2.push(["Luis", "García", "Fernández", "23456789C", "03/03/1988"]);
 array2.push(["María", "Rodríguez", "Sánchez", "34567890D", "04/04/1995"]);
@@ -122,23 +125,27 @@ array2.push(["Carlos", "Martínez", "Torres", "45678901E", "05/05/1985"]);
 array2.push(["Elena", "Pérez", "González", "56789012F", "06/06/1993"]);
 array2.push(["José", "Hernández", "Morales", "67890123G", "07/07/1980"]);
 console.log(array2)
+
 function mayordeEdad(ano){
     let f = new Date()
     let year= f.getFullYear();
     return array2.filter((persona)=>(year-Number(persona[4].split("/")[2]))>=ano)
 }
+
 function menorEdad(ano){
     let f = new Date()
     let year= f.getFullYear();
     return array2.filter((persona)=>(year-Number(persona[4].split("/")[2]))<ano)
 }
-/*function modificaDatos(){
+var p=mayordeEdad(18)
+console.log(p);
+
+function modificaDatos(){
     let dni=prompt("Di el dni de la persona que quieres modificar");
     let dato = prompt("¿Qué dato quieres modificar? (nombre, apellido1, apellido2, dni, fecha)").toLowerCase();
     return array2.forEach((persona)=>{
         if(persona[3]==dni){
             let nuevoDato = prompt(`Introduce el nuevo valor para: ` + dato);
-            
             // Modificar el campo adecuado según el dato que elijas
             switch(dato) {
                 case 'nombre':
@@ -159,8 +166,7 @@ function menorEdad(ano){
                 default:
                     alert("Dato no válido");
         }
-    }
-       
+    } 
     })
 }
 function buscarPorDNI(dni) {
@@ -197,16 +203,13 @@ function eliminarPersona() {
         alert("Persona no encontrada.");
     }
 }
-
 var dni = buscarPorDNI("67890123G");
 var apellidos = buscarPorApellidos("Pérez", "Gómez");
 var f=buscarPorFecha("04/04/1995")
-var p=mayordeEdad(18)
 eliminarPersona()
-console.log(array2)
 console.log(dni);
 console.log(apellidos);
-console.log(f);
+
 
 //11
 function extraerNumerosYSumar(cadena) {
@@ -227,6 +230,8 @@ const numeros = cadena.match(/\d+/g);
 
 const entrada = prompt("Introduce una cadena con números:");
 extraerNumerosYSumar(entrada);
+
+
 //13
 
 
@@ -253,26 +258,32 @@ rellenar()
 
 //14
 
-let matrices=()=>{
-var a = [];
-for(let i=0;i<2;i++){
-    var m=[]
-    for(let j=0;j<6;j++){
-        m.push(Math.floor(Math.random() * 100));
+let matrices = () => {
+    var a = [];
+    // Creación de dos arrays con números aleatorios
+    for (let i = 0; i < 2; i++) {
+        var m = [];
+        for (let j = 0; j < 6; j++) {
+            m.push(Math.floor(Math.random() * 100));
+        }
+        a.push(m);
     }
-    a.push(m)
-}
-console.log(a)
-let suma=0;
-let resultado=a.map((i)=> suma=suma+a[i]);
-console.log(resultado)
 
+    console.log('Matriz original:', a);
 
-}
+    // Sumar las dos matrices
+    let suma = [];
+    for (let i = 0; i < a[0].length; i++) {
+        suma.push(a[0][i] + a[1][i]);  // Sumar cada elemento correspondiente de las dos matrices
+    }
 
-matrices()
-//22
-MAP Y SET
+    console.log('Resultado de la suma:', suma);
+};
+
+matrices();
+*/
+
+//22 MAP Y SET
 
 const modulos=new Map();
 modulos.set("DWECL","Desarrollo Web en Entorno Cliente")
@@ -305,7 +316,7 @@ if(modulos.has("DAW")){
 const ordenado = new Map([...modulos.entries()].sort());
 console.log(ordenado); //o hacer un let array=[...modulos ] y array.sort()
 
-
+/*
 //23
 const modulos = new Map();
 

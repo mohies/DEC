@@ -2,9 +2,10 @@ window.addEventListener("load", inicializar, false);
 
 function inicializar() {
 
-  checkStorageExists();
+  mensaje()
 
   document.getElementById("btn").addEventListener("click", setStorage);
+  document.getElementById("habitacion").addEventListener("focus", checkStorageExists);
 }
 
 
@@ -18,15 +19,20 @@ function setStorage() {
     return;
   }
 
+
+  localStorage.setItem("name", `${nombre}`);
+  localStorage.setItem("hab", `${habitacion}`);
+  localStorage.setItem("cafe", `${cafe.value}`);
+
   const nameCookie = localStorage.getItem("name");
   const habitacionCookie = localStorage.getItem("hab");
-  const cafeCookie = localStorage.getItem("cafe");
 
-  if (nameCookie && habitacionCookie && cafeCookie) {
+
+  if (nameCookie==nombre && habitacionCookie==habitacion) {
     let contador = localStorage.getItem("contador");
     contador = parseInt(contador) + 1;
     localStorage.setItem("contador", `${contador}`);
-
+    localStorage.setItem("cafe", `${cafe.value}`);
 
     if (contador >= 3) {
       alert(" Tu próximo café es gratis.");
@@ -51,11 +57,18 @@ function checkStorageExists() {
   const habitacionStorage = localStorage.getItem("hab");
   const cafeStorage = localStorage.getItem("cafe");
   const contadorStorage = localStorage.getItem("contador");
-
+  
   // Verificamos si todos los datos necesarios existen en localStorage
   if (nameStorage && habitacionStorage && cafeStorage) {
     // Si existen, mostramos un mensaje de bienvenida y detalles sobre el café
-    alert(`Bienvenido de nuevo ${nameStorage}, el último café que pediste fue ${cafeStorage} en la habitación ${habitacionStorage}`);
+    
+    document.getElementById("nombre").value = `${nameStorage}`;
+    document.getElementById("habitacion").value = `${habitacionStorage}`;
+    const cafeOption = document.querySelector(`input[name="cafe"][value="${cafeStorage}"]`);
+    if (cafeOption) {
+      cafeOption.checked =true ;
+    }
+    
 
     // Si el contador alcanza 3, mostramos el mensaje de café gratis
     if (contadorStorage && parseInt(contadorStorage) >= 3) {
@@ -66,3 +79,12 @@ function checkStorageExists() {
     alert("No se ha encontrado información previa. Por favor, realiza un pedido primero.");
   }
 }
+
+
+function mensaje(){
+  const nameStorage = localStorage.getItem("name");
+  const habitacionStorage = localStorage.getItem("hab");
+  const cafeStorage = localStorage.getItem("cafe");
+  alert(`Bienvenido de nuevo ${nameStorage}, el último café que pediste fue ${cafeStorage} en la habitación ${habitacionStorage}`);
+}
+

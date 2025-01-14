@@ -14,7 +14,7 @@ function quedan() {
 
 
     let area = document.getElementById("smsText").value;
-    const formato = /[A-Za-z0-9,Ññ]+s/;
+    const formato = /^\w+$/;
     if (!formato.test(area)) {
         document.getElementById('submit').disabled = true; // tengo dos opciones
         document.getElementById('error').textContent="ERROR NO CARACTERES ESPECIALES";

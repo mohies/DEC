@@ -2,10 +2,14 @@ window.addEventListener("load", inicializar, false);
 
 function inicializar() {
     //1 document.getElementById("formulario").addEventListener("submit",mostrardatos) /* no hay que poner parentesis ya que no queiro que se ejcute en el momento*/
-    //3document.getElementById("submit").addEventListener("click",mostrar)
+    //document.getElementById("submit").addEventListener("click",mostrar)
     //9 document.getElementById("boton").addEventListener("click",confirma)
-    [...document.getElementsByTagName("input")].forEach((a) => a.addEventListener("input", teclado2));
-    [...document.getElementsByTagName("input")].forEach((a) => a.addEventListener("blur", teclado));
+    //[...document.getElementsByTagName("input")].forEach((a) => a.addEventListener("input", teclado2));
+    //[...document.getElementsByTagName("input")].forEach((a) => a.addEventListener("blur", teclado));
+    document.getElementById("pass1").addEventListener("input", teclado2)
+    document.getElementById("pass1").addEventListener("blur", teclado)
+    document.getElementById("pass2").addEventListener("input", teclado2)
+    document.getElementById("pass2").addEventListener("blur", teclado)
     document.getElementById("formulario").addEventListener("blur", teclado)
     document.getElementById("formulario").addEventListener("submit", validar)
    
@@ -41,7 +45,7 @@ function mostrardatos(event) {
         <p><strong>Email:</strong> ` + email + `</p>
     `;
 
-    document.body.innerHTML += contenido;
+    document.body.innerHTML += contenido; //es necesario para que escriba por debajo del html y no remplace entero
 
 
     let ventana = window.open('', 'Ventana nueva', "");
@@ -77,7 +81,7 @@ function validar(event) {
         valor.style.color = "red";
         campo.focus()
         event.preventDefault()
-
+        
     }
 
     let contraseña1 = document.getElementById("pass1").value;
@@ -117,31 +121,33 @@ function validar(event) {
     let formatomes = /\s/;
     let mes = document.getElementById("mes").value;
 
-    if (!formatomes.test(mes)) {
+    if (mes=="") {
         document.getElementById("errormes").textContent="Introduce un mes";
         document.getElementById("errormes").style.color="red";
         event.preventDefault()
 
+    }else{
+        document.getElementById("errormes").textContent="";
     }
 
     let formatonombre=/\w{3,16}/;
     let formatoespacio=/\s/;
     let nombre=document.getElementById("nombre").value;
     if(nombre.trim()===""){
-        document.getElementById("error1").textContent="No puede quedar vacio";
-        document.getElementById("error1").style.color="red";
+        document.getElementById("errort").textContent="No puede quedar vacio";
+        document.getElementById("errort").style.color="red";
         event.preventDefault()
 
     }else if(formatoespacio.test(nombre)){
-        document.getElementById("error1").textContent="No puede haber espacios";
-        document.getElementById("error1").style.color="red";
+        document.getElementById("errort").textContent="No puede haber espacios";
+        document.getElementById("errort").style.color="red";
 
     }else if(!formatonombre.test(nombre)){
-        document.getElementById("error1").textContent="Introduce formato correcto";
-        document.getElementById("error1").style.color="red";
+        document.getElementById("errort").textContent="Introduce formato correcto";
+        document.getElementById("errort").style.color="red";
     }
     else{
-        document.getElementById("error1").textContent="";
+        document.getElementById("errort").textContent="";
     }
 
 

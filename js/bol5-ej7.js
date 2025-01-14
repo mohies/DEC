@@ -1,6 +1,6 @@
 window.addEventListener("load",inicializar,false);
 function inicializar(){
-document.getElementById("colorForm").addEventListener("change",cambiar)
+document.getElementById("colorForm").addEventListener("change",cambiar) //click
 
 }
 

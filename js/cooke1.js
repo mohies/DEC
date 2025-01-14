@@ -34,17 +34,23 @@ function setCookie() {
 
 
 
-  const nameCookie = document.cookie.split(";").some(item => item.trim().startsWith("name="));
-  const habitacionCookie = document.cookie.split(";").some(item => item.trim().startsWith("hab="));
-  const cafeCookie = document.cookie.split(";").some(item => item.trim().startsWith("cafe="));
+  const nameCookie = getCookie('name');
+  const habitacionCookie = getCookie('hab');
+ 
 
-  document.cookie = `name=${nombre}; Samesite=None; Secure`;
-  document.cookie = `hab=${habitacion}; Samesite=None; Secure`;
-  document.cookie = `cafe=${cafe.value}; Samesite=None; Secure`;
-  
-  let contador = getCookie('contador');
-  contador = contador ? parseInt(contador) +1   : 1;
-  document.cookie = `contador=${contador}; Samesite=None; Secure`;
+  if(nameCookie == nombre && habitacionCookie==habitacion){
+    let contador = getCookie('contador');
+    contador = contador ? parseInt(contador) +1   : 1;
+    document.cookie = `contador=${contador}; Samesite=None; Secure`;
+    document.cookie = `cafe=${cafe.value}; Samesite=None; Secure`;
+  }else{
+    document.cookie = `name=${nombre}; Samesite=None; Secure`;
+    document.cookie = `hab=${habitacion}; Samesite=None; Secure`;
+    document.cookie = `cafe=${cafe.value}; Samesite=None; Secure`;
+    document.cookie = `contador=1; Samesite=None; Secure`;
+
+  }
+ 
   
   if (contador >= 3) {
     alert("Tu próximo café es gratis.");
@@ -71,13 +77,13 @@ function checkACookieExists() {
       document.getElementById("habitacion").value = `${habitacion}`;
       const cafeOption = document.querySelector(`input[name="cafe"][value="${cafe}"]`);
       if (cafeOption) {
-        cafeOption.checked = true;
+        cafeOption.checked =true ;
       }
 
 
       if (contador >= 3) {
         alert("Tu próximo café es gratis");
-        document.cookie = `contador=; Samesite=None; Secure`;
+        document.cookie = `contador=1; Samesite=None; Secure`;
 
       }
 

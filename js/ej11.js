@@ -9,6 +9,7 @@ function validarCampo(event) {
     const value = event.target; 
     const value2 = value.value.trim(); 
 
+
  
     if (value2 === "") {
         if(value.getAttribute("id")=="pass1"){
@@ -22,7 +23,11 @@ function validarCampo(event) {
         }else{
             document.getElementById("error2").textContent=""
         }
+    
        
         value.focus();  
+}else{
+    document.getElementById("error1").textContent=""
+    document.getElementById("error2").textContent=""
 }
 }

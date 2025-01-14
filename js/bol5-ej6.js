@@ -15,7 +15,7 @@ function validateForm(event) {
   
     if (x === "") {
         alert("El campo no puede estar vacío.");
-        return false;
+        return false;//para que no se envie el formulario automaticamente
     }
 
     
