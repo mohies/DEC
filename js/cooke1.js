@@ -40,7 +40,7 @@ function setCookie() {
 
   if(nameCookie == nombre && habitacionCookie==habitacion){
     let contador = getCookie('contador');
-    contador = contador ? parseInt(contador) +1   : 1;
+    contador = parseInt(contador) +1;
     document.cookie = `contador=${contador}; Samesite=None; Secure`;
     document.cookie = `cafe=${cafe.value}; Samesite=None; Secure`;
   }else{

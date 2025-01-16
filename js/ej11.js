@@ -1,8 +1,9 @@
 window.addEventListener("load", inicializar, false);
 
 function inicializar() {
-    document.getElementById("pass1").addEventListener("blur", validarCampo);
-    document.getElementById("pass2").addEventListener("blur", validarCampo);
+    [...document.getElementsByTagName("input")].forEach((input)=>{
+        input.addEventListener("blur",validarCampo)
+    })
 }
 
 function validarCampo(event) {

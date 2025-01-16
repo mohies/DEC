@@ -1,15 +1,8 @@
 window.addEventListener("load", inicializar, false)
 
 function inicializar() {
-    document.getElementById("respuesta1A").addEventListener("click", mostrar);
-    document.getElementById("respuesta1B").addEventListener("click", mostrar);
-    document.getElementById("respuesta1C").addEventListener("click", mostrar);
-    document.getElementById("respuesta1D").addEventListener("click", mostrar);
+    document.getElementById("examen").addEventListener("click", mostrar);
 
-    document.getElementById("respuesta2A").addEventListener("click", mostrar);
-    document.getElementById("respuesta2B").addEventListener("click", mostrar);
-    document.getElementById("respuesta2C").addEventListener("click", mostrar);
-    document.getElementById("respuesta2D").addEventListener("click", mostrar);
     /* document.getElementById("respuesta1A").addEventListener("click",function(){
          alert("CORRECTA")
      })

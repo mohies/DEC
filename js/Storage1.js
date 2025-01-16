@@ -5,7 +5,7 @@ function inicializar() {
   mensaje()
 
   document.getElementById("btn").addEventListener("click", setStorage);
-  document.getElementById("habitacion").addEventListener("focus", checkStorageExists);
+  document.getElementById("nombre").addEventListener("focus", checkStorageExists);
 }
 
 
@@ -16,7 +16,7 @@ function setStorage() {
 
   if (!nombre || !habitacion || !cafe) {
     alert("Por favor, rellena todos los campos y selecciona");
-    return;
+    return; // Esto detendrá la ejecución de la función
   }
 
 

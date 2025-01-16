@@ -281,7 +281,7 @@ let matrices = () => {
 };
 
 matrices();
-*/
+
 
 //22 MAP Y SET
 
@@ -316,7 +316,7 @@ if(modulos.has("DAW")){
 const ordenado = new Map([...modulos.entries()].sort());
 console.log(ordenado); //o hacer un let array=[...modulos ] y array.sort()
 
-/*
+
 //23
 const modulos = new Map();
 
@@ -352,6 +352,7 @@ let repetido = (array) => {
     console.log(resultado);     
 };
 repetido(array);
+*/
 
 
 //Objetos 
@@ -439,7 +440,7 @@ function Rectangulof(punto1, punto2) {
 
 }
 
-
+/*
 //Ejercicio 20 con objetos
 
 class Persona {
